@@ -67,6 +67,75 @@
   }
 }
 
+.theme-blue {
+  --radius: 0.625rem;
+  --background: oklch(0.95 0.02 250); /* Lighter blue background */
+  --foreground: oklch(0.1 0.05 250); /* Darker blue foreground */
+  --card: oklch(1 0 0); /* White card */
+  --card-foreground: oklch(0.1 0.05 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.1 0.05 250);
+  --primary: oklch(0.5 0.15 250); /* Blue primary */
+  --primary-foreground: oklch(0.98 0.02 250); /* Light blue/white foreground for primary */
+  --secondary: oklch(0.85 0.05 250); /* Lighter blue secondary */
+  --secondary-foreground: oklch(0.1 0.05 250);
+  --muted: oklch(0.9 0.03 250); /* Very light blue for muted */
+  --muted-foreground: oklch(0.4 0.05 250); /* Medium blue for muted foreground */
+  --accent: oklch(0.6 0.2 250); /* Vibrant blue accent */
+  --accent-foreground: oklch(0.98 0.02 250);
+  --destructive: oklch(0.577 0.245 27.325); /* Standard destructive red */
+  --border: oklch(0.8 0.05 250); /* Light blue border */
+  --input: oklch(0.8 0.05 250);
+  --ring: oklch(0.5 0.15 250); /* Blue ring */
+  --chart-1: oklch(0.5 0.15 250);
+  --chart-2: oklch(0.6 0.15 230);
+  --chart-3: oklch(0.7 0.15 270);
+  --chart-4: oklch(0.55 0.2 260);
+  --chart-5: oklch(0.65 0.2 240);
+  --sidebar: oklch(0.98 0.01 250); /* Very light blue for sidebar */
+  --sidebar-foreground: oklch(0.1 0.05 250);
+  --sidebar-primary: oklch(0.5 0.15 250);
+  --sidebar-primary-foreground: oklch(0.98 0.02 250);
+  --sidebar-accent: oklch(0.85 0.05 250);
+  --sidebar-accent-foreground: oklch(0.1 0.05 250);
+  --sidebar-border: oklch(0.8 0.05 250);
+  --sidebar-ring: oklch(0.5 0.15 250);
+
+  @variant dark {
+    --background: oklch(0.1 0.05 250); /* Dark blue background */
+    --foreground: oklch(0.95 0.02 250); /* Lighter blue foreground */
+    --card: oklch(0.15 0.05 250); /* Darker blue card */
+    --card-foreground: oklch(0.95 0.02 250);
+    --popover: oklch(0.15 0.05 250);
+    --popover-foreground: oklch(0.95 0.02 250);
+    --primary: oklch(0.7 0.15 250); /* Lighter blue primary for dark mode */
+    --primary-foreground: oklch(0.1 0.05 250); /* Dark blue foreground for primary */
+    --secondary: oklch(0.25 0.05 250); /* Darker blue secondary */
+    --secondary-foreground: oklch(0.95 0.02 250);
+    --muted: oklch(0.2 0.03 250); /* Dark blue for muted */
+    --muted-foreground: oklch(0.6 0.05 250); /* Medium-light blue for muted foreground */
+    --accent: oklch(0.8 0.2 250); /* Bright blue accent for dark mode */
+    --accent-foreground: oklch(0.1 0.05 250);
+    --destructive: oklch(0.704 0.191 22.216); /* Standard destructive red (darker shade) */
+    --border: oklch(0.2 0.05 250 / 50%); /* Dark blue border with some transparency */
+    --input: oklch(0.2 0.05 250 / 60%); /* Dark blue input with some transparency */
+    --ring: oklch(0.7 0.15 250); /* Lighter blue ring for dark mode */
+    --chart-1: oklch(0.7 0.15 250);
+    --chart-2: oklch(0.6 0.15 230);
+    --chart-3: oklch(0.8 0.15 270);
+    --chart-4: oklch(0.65 0.2 260);
+    --chart-5: oklch(0.75 0.2 240);
+    --sidebar: oklch(0.15 0.05 250); /* Darker blue for sidebar */
+    --sidebar-foreground: oklch(0.95 0.02 250);
+    --sidebar-primary: oklch(0.7 0.15 250);
+    --sidebar-primary-foreground: oklch(0.1 0.05 250);
+    --sidebar-accent: oklch(0.25 0.05 250);
+    --sidebar-accent-foreground: oklch(0.95 0.02 250);
+    --sidebar-border: oklch(0.2 0.05 250 / 50%);
+    --sidebar-ring: oklch(0.7 0.15 250);
+  }
+}
+
 .theme-zinc {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

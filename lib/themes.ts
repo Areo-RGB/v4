@@ -24,6 +24,10 @@ export const THEMES = [
     value: "slate",
   },
   {
+    name: "Blue",
+    value: "blue",
+  },
+  {
     name: "Scaled",
     value: "scaled",
   },
