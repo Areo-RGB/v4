@@ -78,54 +78,72 @@ export const useVideoPlayerStore = create<VideoPlayerState>()(
           set({ hasError: true })
         }
       },
-      
-      pause: () => {
-        const { videoElement } = get()
+        pause: () => {
+        const { videoElement, handleError } = get()
         if (!videoElement) return
         
-        videoElement.pause()
-        set({ isPlaying: false })
+        try {
+          videoElement.pause()
+          set({ isPlaying: false })
+        } catch (error) {
+          handleError(error instanceof Error ? error : new Error('Pause operation failed'))
+        }
       },
-      
-      reset: () => {
-        const { videoElement } = get()
+        reset: () => {
+        const { videoElement, handleError } = get()
         if (!videoElement) return
         
-        videoElement.currentTime = 0
-        set({ currentTime: 0 })
+        try {
+          videoElement.currentTime = 0
+          set({ currentTime: 0 })
+        } catch (error) {
+          handleError(error instanceof Error ? error : new Error('Reset operation failed'))
+        }
       },
-      
-      seek: (time: number) => {
-        const { videoElement } = get()
+        seek: (time: number) => {
+        const { videoElement, handleError } = get()
         if (!videoElement) return
         
-        videoElement.currentTime = time
-        set({ currentTime: time })
+        try {
+          videoElement.currentTime = time
+          set({ currentTime: time })
+        } catch (error) {
+          handleError(error instanceof Error ? error : new Error('Seek operation failed'))
+        }
       },
-      
-      setVolumeLevel: (level: number) => {
-        const { videoElement } = get()
+        setVolumeLevel: (level: number) => {
+        const { videoElement, handleError } = get()
         if (!videoElement) return
         
-        const clampedLevel = Math.max(0, Math.min(1, level))
-        videoElement.volume = clampedLevel
-        set({ volume: clampedLevel })
+        try {
+          const clampedLevel = Math.max(0, Math.min(1, level))
+          videoElement.volume = clampedLevel
+          set({ volume: clampedLevel })
+        } catch (error) {
+          handleError(error instanceof Error ? error : new Error('Volume adjustment failed'))
+        }
       },
-      
-      toggleMute: () => {
-        const { videoElement } = get()
+        toggleMute: () => {
+        const { videoElement, handleError } = get()
         if (!videoElement) return
         
-        videoElement.muted = !videoElement.muted
-        set({ muted: videoElement.muted })
+        try {
+          videoElement.muted = !videoElement.muted
+          set({ muted: videoElement.muted })
+        } catch (error) {
+          handleError(error instanceof Error ? error : new Error('Mute toggle failed'))
+        }
       },
-      
-      setSpeed: (rate: number) => {
-        const { videoElement } = get()
+        setSpeed: (rate: number) => {
+        const { videoElement, handleError } = get()
         if (!videoElement) return
         
-        videoElement.playbackRate = rate
-        set({ playbackRate: rate })
+        try {
+          videoElement.playbackRate = rate
+          set({ playbackRate: rate })
+        } catch (error) {
+          handleError(error instanceof Error ? error : new Error('Playback rate adjustment failed'))
+        }
       },
       
       togglePlayPause: () => {
@@ -173,17 +191,18 @@ export const useVideoPlayerSync = (videoElement: HTMLVideoElement | null) => {
       setIsLoaded(true)
       setDuration(videoElement.duration)
     }
+      const handleTimeUpdate = () => {
+      setCurrentTime(videoElement.currentTime)
+    }
     
-    const handleTimeUpdate = () => {
-      setCurrentTime(videoElement.currentTime)    }
-      const onError = (event: ErrorEvent) => {
+    const onError = (event: ErrorEvent) => {
       handleError(new Error('Video failed to load: ' + event.message))
     }
-    
-    const handleEnded = () => {
+      const handleEnded = () => {
       setIsPlaying(false)
     }
-      videoElement.addEventListener('loadeddata', handleLoadedData)
+    
+    videoElement.addEventListener('loadeddata', handleLoadedData)
     videoElement.addEventListener('timeupdate', handleTimeUpdate)
     videoElement.addEventListener('error', onError)
     videoElement.addEventListener('ended', handleEnded)

@@ -21,6 +21,9 @@ build/
 # Production
 /build
 
+# TypeScript build cache
+tsconfig.tsbuildinfo
+
 # Misc
 .DS_Store
 *.pem
@@ -35,14 +38,17 @@ pnpm-debug.log*
 .env*.local
 .env
 
-# Turborepo
-.turbo
-
 # ESLint cache
 .eslintcache
 
+# Prettier cache
+.prettiercache
+
 # VSCode
 .vscode/
+
+# Cursor IDE
+.cursor/
 
 # Log files
 *.log
@@ -60,6 +66,11 @@ logs
 # Optional npm cache directory
 .npm
 
+# Package manager lock files (keep only one)
+package-lock.json
+yarn.lock
+# Note: Keeping pnpm-lock.yaml since that's what you're using
+
 # Optional eslint cache
 .eslintcache
 
@@ -68,6 +79,16 @@ logs
 
 # Yarn Integrity file
 .yarnclean
+
+# Turbo
+.turbo/
+
+# Storybook build outputs
+storybook-static
+
+# Temporary folders
+tmp/
+temp/
 
 # dotenv environment variable files
 .env
@@ -78,6 +99,10 @@ logs
 # Parcel cache files
 .cache
 dist/ 
+
+# Vercel
+.vercel
+
 # next-video
 videos/*
 !videos/*.json
